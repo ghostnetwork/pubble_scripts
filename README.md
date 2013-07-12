@@ -1,4 +1,4 @@
 pubble_scripts
 ==============
 
-scripts to help with pebble development
+scripts that help with pebble development
