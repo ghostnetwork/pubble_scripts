@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PebbleDir="/Users/Hawk/SkyDrive/dev/pebble/sdk/PebbleSDK-1.12/Pebble/"
+PebbleSdkDir=$PebbleDir/"sdk"
+ToolsDir="tools"
+PebbleToolsDir=$PebbleDir$ToolsDir
+CreatePebbleProject=$PebbleToolsDir/create_pebble_project.py
+
+#echo $CreatePebbleProject $PebbleSdkDir $1
+
+$CreatePebbleProject $PebbleSdkDir $1
+#../tools/create_pebble_project.py ../sdk $1
+
+#TODO: if $1 doesn't exist, bail
+
+pushd $1
+./waf configure
+./waf build
+./waf clean build && pushd build/ && python -m SimpleHTTPServer 8000
+

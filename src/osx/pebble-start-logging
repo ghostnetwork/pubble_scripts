@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pushd ~/SkyDrive/dev/pebble/libpebble
+./p.py --lightblue --pebble_id CA96 logcat
+popd

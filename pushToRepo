@@ -10,14 +10,14 @@ for file in $files; do
 done
 
 cd ../
-
 ls src/osx
+git add src
 git commit -a
 git push
 
 cd src/osx
 rm *
 cd ..
-rmdir src/osx
+rmdir src
 
 

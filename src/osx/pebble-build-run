@@ -1,0 +1,13 @@
+#!/bin/sh
+
+./waf configure
+./waf build
+#~/bin/start-pebble-server
+
+cp build/$1.pbw ~/SkyDrive/dev/pebble/libpebble
+pushd ~/SkyDrive/dev/pebble/libpebble
+
+#TODO check if $2 is --load then run load instead of reinstall
+#./p.py --pebble_id CA96 --lightblue load $1.pbw
+./p.py --pebble_id CA96 --lightblue reinstall $1.pbw
+popd
