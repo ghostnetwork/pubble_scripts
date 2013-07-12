@@ -1,0 +1,23 @@
+#!/bin/sh
+files="create-pebble-project pebble-build-run pebble-start-logging start-pebble-server"
+
+mkdir -p src/osx
+
+cd osx
+for file in $files; do
+  echo $file
+  cp $file ../src/osx
+done
+
+cd ../
+
+ls src/osx
+git commit -a
+git push
+
+cd src/osx
+rm *
+cd ..
+rmdir src/osx
+
+
